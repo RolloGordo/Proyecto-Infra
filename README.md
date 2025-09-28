@@ -15,7 +15,7 @@ La plataforma incluye:
 - **Frontend**: página web estática (ReactJS / HTML, CSS, JS) desplegada en **Amazon S3** y distribuida mediante **CloudFront**.
 - **Backend**: API REST desplegada en **AWS Lambda**, expuesta a través de **API Gateway**.
 - **Base de Datos**: **Amazon DynamoDB** (serverless, pago por uso).
-- **Monitoreo**: integración con **CloudWatch** para métricas y logs.
+- **Monitoreo**: integración con **CloudWatch** para métricas y logs; además, el uso de **Amazon SNS** para ermitir que el sistema envíe  **alertas automáticas** a los administradores o usuarios finales cuando ocurran ciertos eventos.
 - **Seguridad**: manejo de certificados SSL mediante **ACM** y control de accesos con IAM.
 
 ---
