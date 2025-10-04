@@ -9,6 +9,7 @@ override.tf.json
 *.override.tf
 *.override.tf.json
 .terraform
+*.exe
 .terraform.lock.hcl
 terraform.tfstate.backup
 terraform.rc
