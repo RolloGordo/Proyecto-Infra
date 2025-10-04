@@ -8,7 +8,7 @@ Integrantes:
 - Benites Mendoza, Fernando Manuel
 
 ## Descripción del Proyecto
-Este proyecto consiste en el diseño e implementación de una **infraestructura en AWS utilizando Terraform** para soportar una **plataforma web de reservas en línea** (ej. gimnasio, coworking, consultorios médicos).  
+Este proyecto consiste en el diseño e implementación de una **infraestructura en AWS utilizando Terraform** para soportar una **plataforma web de reservas y suscripciones en línea para un gimnasio**.  
 La solución busca ser **escalable, segura y de bajo costo**, aprovechando servicios **serverless** de AWS.
 
 La plataforma incluye:
