@@ -71,22 +71,3 @@ resource "aws_lambda_function" "backend" {
     ManagedBy   = "Terraform"
   }
 }
-
-# IAM Role Policy para Lambda con permisos sobre SNS
-resource "aws_iam_role_policy" "lambda_sns_policy" {
-  name   = "${var.project_name}-${var.environment}-lambda-sns-policy"
-  role   = aws_iam_role.lambda_role.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect   = "Allow"
-        Action   = [
-          "sns:Publish"
-        ]
-        Resource = var.sns_topic_arn
-      }
-    ]
-  })
-}
