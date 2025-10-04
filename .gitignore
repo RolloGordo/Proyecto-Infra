@@ -8,7 +8,7 @@ override.tf
 override.tf.json
 *.override.tf
 *.override.tf.json
-.terraform/
+.terraform
 .terraform.lock.hcl
 terraform.tfstate.backup
 terraform.rc
