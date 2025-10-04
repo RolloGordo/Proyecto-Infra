@@ -67,7 +67,7 @@ module "sns" {
 # ------------------------
 module "cloudwatch" {
   source       = "./modules/cloudwatch"
-  lambda_name  = module.lambda_backend.lambda_name
-  project_name = var.project_name
-  environment  = var.environment
+  project_name         = var.project_name
+  environment          = var.environment
+  log_retention_in_days = 14
 }
