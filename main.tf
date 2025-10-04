@@ -31,10 +31,13 @@ module "dynamodb" {
 # ------------------------
 module "lambda_backend" {
   source           = "./modules/lambda"
-  project_name     = var.project_name
-  environment      = var.environment
-  dynamodb_table   = module.dynamodb.table_name
-  sns_topic_arn    = module.sns.topic_arn
+  project_name         = var.project_name
+  environment          = var.environment
+  dynamodb_table_name  = module.dynamodb.table_name
+  dynamodb_table_arn   = module.dynamodb.table_arn
+  lambda_s3_bucket     = module.s3_frontend.bucket_name
+  lambda_s3_key        = "build/lambda.zip"
+  sns_topic_arn        = module.sns.topic_arn
 }
 
 # ------------------------
@@ -42,9 +45,10 @@ module "lambda_backend" {
 # ------------------------
 module "apigateway" {
   source          = "./modules/apigateway"
-  lambda_arn      = module.lambda_backend.lambda_arn
-  project_name    = var.project_name
-  environment     = var.environment
+  lambda_name        = module.lambda_backend.lambda_name
+  lambda_invoke_arn  = module.lambda_backend.lambda_invoke_arn
+  project_name       = var.project_name
+  environment        = var.environment
 }
 
 # ------------------------
@@ -54,6 +58,8 @@ module "sns" {
   source       = "./modules/sns"
   project_name = var.project_name
   environment  = var.environment
+  enable_email_subscription = true
+  notification_email        = "hfsv123456@gmail.com"
 }
 
 # ------------------------
