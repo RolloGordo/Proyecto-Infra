@@ -56,8 +56,3 @@ variable "memory_size" {
   type        = number
   default     = 128
 }
-
-variable "sns_topic_arn" {
-  description = "ARN del SNS Topic para publicar notificaciones"
-  type        = string
-}

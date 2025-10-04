@@ -90,31 +90,3 @@ resource "aws_iam_role_policy" "lambda_sns_policy" {
     ]
   })
 }
-
-# Lambda function
-resource "aws_lambda_function" "this" {
-  function_name = "${var.project_name}-${var.environment}-lambda"
-  role          = aws_iam_role.lambda_role.arn
-  runtime       = var.runtime
-  handler       = var.handler
-  
-  # código desde S3
-  s3_bucket = var.lambda_s3_bucket
-  s3_key    = var.lambda_s3_key
-
-  timeout     = var.timeout
-  memory_size = var.memory_size
-
-  environment {
-    variables = {
-      DYNAMODB_TABLE = var.dynamodb_table_name
-      SNS_TOPIC_ARN  = var.sns_topic_arn
-    }
-  }
-
-  tags = {
-    Name        = "${var.project_name}-${var.environment}-lambda"
-    Environment = var.environment
-    ManagedBy   = "Terraform"
-  }
-}
