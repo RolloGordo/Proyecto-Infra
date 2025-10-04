@@ -1,0 +1,38 @@
+# === Terraform ===
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*.override.tf
+*.override.tf.json
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate.backup
+terraform.rc
+.terraformrc
+
+# === AWS Credentials (nunca subir) ===
+.aws/
+**/credentials
+**/config
+
+# === Logs ===
+*.log
+logs/
+debug.log
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+
+# === Python or local scripts (opcional) ===
+__pycache__/
+*.pyc
